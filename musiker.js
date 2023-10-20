@@ -33,4 +33,16 @@ export default class Musiker {
     });
   };
 
+  skrivUtMusiker() {
+    for (let i = 0; i < this.musikerLista.length; i++) {
+      console.log(`${i + 1}.${this.musikerLista[i].musikernsNamn}`);
+    }
+  }
+  taBortMusiker() {
+    this.musikerLista.splice(index, 1)
+  }
+
+  skrivUtEnMusiker(val2) {
+    console.log(this.musikerLista[val2 - 1])
+  }
 }
