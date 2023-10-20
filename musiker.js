@@ -38,11 +38,10 @@ export default class Musiker {
       console.log(`${i + 1}.${this.musikerLista[i].musikernsNamn}`);
     }
   }
-  taBortMusiker() {
-    this.musikerLista.splice(index, 1)
-  }
-
   skrivUtEnMusiker(val2) {
     console.log(this.musikerLista[val2 - 1])
+  }
+  taBortMusiker() {
+    this.musikerLista.splice(index, 1)
   }
 }
