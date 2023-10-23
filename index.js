@@ -1,5 +1,6 @@
 import Musiker from "./musiker.js"
 import Band from "./band.js"
+import Index2 from "./index2.js";
 
 import PromptSync from "prompt-sync";
 const prompt = PromptSync({ sigint: true });
@@ -15,6 +16,7 @@ console.log(`Meny
 const val = prompt();
 const musik = new Musiker();
 const band = new Band();
+const index2 = new Index2();
 switch (val) {
   case "1":
     let musikernsNamn = prompt("Musikerns namn: ")
@@ -30,9 +32,21 @@ switch (val) {
     musik.taBortMusiker();
     break;
   case "4":
-    let bandNamn = prompt("Bandets namn: ");
-    let bandBildades = prompt("Vilket år bildades bandet?: ");
-    band.skapaBand(bandNamn, bandBildades);
+    if (musik.musikerLista.length === 0) {
+      console.log("Din musiker lista är tom, skapa en musiker!");
+    } else {
+      musik.skrivUtMusiker();
+      let val = prompt();
+      if (val < 1 || val > musik.musikerLista.length || isNaN(val)) {
+        console.log("Valet finns inte");
+      } else {
+        let instrument = prompt("Vilket instrument spelar musikern?: ").toLowerCase();
+        let bandNamn = prompt("Bandets namn: ");
+        let bandBildades = prompt("Vilket år bildades bandet?: ");
+        index2.skapaBand(val, instrument, bandNamn, bandBildades);
+      }
+    }
+
     break;
   case "5":
     band.skrivUtBand();

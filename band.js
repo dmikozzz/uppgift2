@@ -18,17 +18,20 @@ export default class Band {
     }
   }
 
-  skapaBand(bandNamn, bandBildades) {
-    const band = new nyBand(bandNamn, bandBildades);
+  skapaBand(instrument, bandNamn, bandBildades, musikerID, musikernsNamn) {
+    const band = new nyBand(instrument, bandNamn, bandBildades, musikerID, musikernsNamn);
     this.bandLista.push(band.dataInfo());
     this.writeJson();
+    return band.dataInfo().bandID;
   }
+
   writeJson() {
     fs.writeFileSync('./band.json', JSON.stringify(this.bandLista, null, 2), (err) => {
       if (err) throw err;
       console.log('Data written to file');
     });
   }
+
   skrivUtBand() {
     for (let i = 0; i < this.bandLista.length; i++) {
       console.log(`${i + 1}.${this.bandLista[i].bandNamn}`);

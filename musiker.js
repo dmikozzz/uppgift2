@@ -44,4 +44,13 @@ export default class Musiker {
   taBortMusiker() {
     this.musikerLista.splice(index, 1)
   }
+
+  editMusiker(index, instrument, bandID, bandNamn, bandBildades) {
+    if (!this.musikerLista[index].instrument.includes(instrument)) {
+      this.musikerLista[index].instrument.push(instrument);
+    }
+    this.musikerLista[index].nuvarandeBand.push({ bandID: bandID, bandNamn: bandNamn, bandBildades: bandBildades })
+    this.writeJson();
+  }
+
 }

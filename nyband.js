@@ -2,9 +2,12 @@ export default class NyBand {
   bandNamn = "";
   bandBildades = "";
 
-  constructor(bandNamn, bandBildades) {
+  constructor(instrument, bandNamn, bandBildades, musikerID, musikernsNamn) {
+    this.instrument = instrument;
     this.bandNamn = bandNamn;
     this.bandBildades = bandBildades;
+    this.musikerID = musikerID;
+    this.musikernsNamn = musikernsNamn;
   }
 
   get bandNamn() {
@@ -33,8 +36,11 @@ export default class NyBand {
   }
   dataInfo() {
     return {
+      bandID: "id" + new Date().getTime(),
       bandNamn: this.bandNamn,
-      bandBildades: this.bandBildades
-    };
+      bandBildades: this.bandBildades,
+      nuvarandeMedlemmar: [{ musikerID: this.musikerID, musikernsNamn: this.musikerID, instrument: this.instrument, gickMed: this.bandBildades }],
+      bandSplit: null
+    }
   }
 }

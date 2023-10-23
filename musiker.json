@@ -14,5 +14,21 @@
   {
     "musikernsNamn": "sgrdhdreh",
     "musikernsBD": "2345"
+  },
+  {
+    "musikerID": "id1698066917644",
+    "musikernsNamn": "Miko",
+    "musikernsBD": "1995",
+    "nuvarandeBand": [
+      {
+        "bandID": "id1698072161114",
+        "bandNamn": "sax man",
+        "bandBildades": "1990"
+      }
+    ],
+    "tidigareBand": [],
+    "instrument": [
+      "saxofon"
+    ]
   }
 ]

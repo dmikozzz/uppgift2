@@ -10,5 +10,52 @@
   {
     "bandNamn": "Mitars3",
     "bandBildades": "1993"
+  },
+  {
+    "bandID": "id1698066048008",
+    "bandNamn": "1",
+    "bandBildades": "saxofon"
+  },
+  {
+    "bandID": "id1698071990294",
+    "bandNamn": "Sax man",
+    "bandBildades": "1990",
+    "nuvarandeMedlemmar": [
+      {
+        "musikerID": "id1698066917644",
+        "musikernsNamn": "id1698066917644",
+        "instrument": "saxofon",
+        "gickMed": "1990"
+      }
+    ],
+    "bandSplit": null
+  },
+  {
+    "bandID": "id1698072044154",
+    "bandNamn": "sax man",
+    "bandBildades": "1990",
+    "nuvarandeMedlemmar": [
+      {
+        "musikerID": "id1698066917644",
+        "musikernsNamn": "id1698066917644",
+        "instrument": "saxofon",
+        "gickMed": "1990"
+      }
+    ],
+    "bandSplit": null
+  },
+  {
+    "bandID": "id1698072161113",
+    "bandNamn": "sax man",
+    "bandBildades": "1990",
+    "nuvarandeMedlemmar": [
+      {
+        "musikerID": "id1698066917644",
+        "musikernsNamn": "id1698066917644",
+        "instrument": "saxofon",
+        "gickMed": "1990"
+      }
+    ],
+    "bandSplit": null
   }
 ]

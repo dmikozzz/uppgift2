@@ -33,8 +33,12 @@ export default class NyMusiker {
   }
   dataInfo() {
     return {
+      musikerID: 'id' + new Date().getTime(),
       musikernsNamn: this.musikernsNamn,
-      musikernsBD: this.musikernsBD
+      musikernsBD: this.musikernsBD,
+      nuvarandeBand: [],
+      tidigareBand: [],
+      instrument: []
     };
   }
 }
