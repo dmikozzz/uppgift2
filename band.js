@@ -29,4 +29,12 @@ export default class Band {
       console.log('Data written to file');
     });
   }
+  skrivUtBand() {
+    for (let i = 0; i < this.bandLista.length; i++) {
+      console.log(`${i + 1}.${this.bandLista[i].bandNamn}`);
+    }
+  }
+  skrivUtEttBand(val2band) {
+    console.log(this.bandLista[val2band - 1])
+  }
 }

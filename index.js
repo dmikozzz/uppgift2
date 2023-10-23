@@ -9,7 +9,8 @@ console.log(`Meny
 1. Lägg till en musiker
 2. Skriv ut information om en musiker
 3. Ta bort en musiker
-4. Lägg till ett band`);
+4. Lägg till ett band
+5. Skriv ut information om band`);
 
 const val = prompt();
 const musik = new Musiker();
@@ -33,6 +34,11 @@ switch (val) {
     let bandBildades = prompt("Vilket år bildades bandet?: ");
     band.skapaBand(bandNamn, bandBildades);
     break;
+  case "5":
+    band.skrivUtBand();
+    console.log("Välj med siffror vilket band du vill ha mer information om: ");
+    let val2band = prompt();
+    band.skrivUtEttBand(val2band);
 
 
 
