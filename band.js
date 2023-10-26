@@ -1,14 +1,11 @@
-import nyBand from "./nyband.js"
-import fs from "fs"
+import fs from 'fs'
 export default class Band {
-  bandLista = [];
-
+  bandLista = []
   constructor() {
-    this.fetchData();
+    this.fetchData()
+    this.newBand = new NewBand();
   }
-  get bandLista() {
-    return this.bandLista;
-  }
+
   fetchData() {
     const jsonString = fs.readFileSync("band.json");
     const data = JSON.parse(jsonString);
@@ -17,49 +14,90 @@ export default class Band {
       this.bandLista.push(data[i]);
     }
   }
-
-  skapaBand(instrument, bandNamn, bandBildades, musikerID, musikernsNamn) {
-    const band = new nyBand(instrument, bandNamn, bandBildades, musikerID, musikernsNamn);
-    this.bandLista.push(band.dataInfo());
-    this.writeJson();
-    return band.dataInfo().bandID;
+  skapaEttBand(bandNamn, bandAge, musikerID, musikerNamn, instrument,) {
+    const newBand = new NewBand(bandNamn, bandAge, musikerID, musikerNamn, instrument);
+    this.bandLista.push(newBand.dataInfo())
+    return newBand.dataInfo().bandID;
   }
 
-  writeJson() {
+  skrivTillJson() {
     fs.writeFileSync('./band.json', JSON.stringify(this.bandLista, null, 2), (err) => {
       if (err) throw err;
-      console.log('Data written to file');
-    });
+      console.log('artist data writen to file')
+    })
   }
 
-  skrivUtBand() {
+  ongoingBand() {
+    const temp = [];
     for (let i = 0; i < this.bandLista.length; i++) {
-      console.log(`${i}.${this.bandLista[i].bandNamn}`);
-    }
-  }
-  skrivUtEttBand(val2band) {
-    console.log(this.bandLista[val2band])
-  }
-
-  aktivtBand() {
-    let a = []
-    for (let i = 0; i < this.bandLista.length; i++) {
-      if (this.bandLista[i].bandSplit === null) {
-        a.push({ bandID: this.bandLista[i].bandID, bandNamn: this.bandLista[i].bandNamn })
+      if (this.bandLista[i].dissolved === null) {
+        temp.push({ bandID: this.bandLista[i].bandID, bandNamn: this.bandLista[i].name, index: i })
       }
     }
-    return a;
+    return temp;
+  }
 
-  }
-  visaAktivtBand() {
-    let a = this.aktivtBand();
-    if (a.length != 0)
-      for (let i = 0; i < a.length; i++) {
-        console.log(`${i}. ${a[i].bandNamn}`);
+  displayOngoingBand() {
+    const temp = this.ongoingBand();
+    if (temp.length != 0) {
+      for (let i = 0; i < temp.length; i++) {
+        console.log(`${i}. ${temp[i].bandNamn}`)
       }
-    return a;
+    }
+    return temp;
   }
-  editBand(index, musikerID, musikernsNamn, instrument, datum) {
-    this.bandLista[index].nuvarandeMedlemmar.push({ musikerID: musikerID, musikernsNamn: musikernsNamn, instrument: instrument, gickMed: datum })
+
+  displayCurrentMember(bandIndex) {
+    const band = this.bandLista[bandIndex].currentBand;
+    const currentMember = [];
+    for (let i = 0; i < band.length; i++) {
+      console.log(`${i}. ${band[i].memberName} ${band[i].instrument}`)
+      currentMember.push(band[i].memberID);
+    }
+    return currentMember;
+  }
+
+  editBand(index, musikerID, musikerNamn, instrument, datum) {
+    this.bandLista[index].currentBand.push({ memberID: musikerID, memberName: musikerNamn, instrument: instrument, joined: datum })
+  }
+
+  currentToPrevious(bandIndex, musikerID, date) {
+    const member = this.bandLista[bandIndex].currentBand.find(x => x.memberID === musikerID);
+    member["dateItLeft"] = date;
+
+    this.bandLista[bandIndex].previousBand.push(member);
+    this.bandLista[bandIndex].currentBand.splice(this.bandLista[bandIndex].currentBand.findIndex(x => x.memberID === musikerID), 1)
+    if (this.bandLista[bandIndex].currentBand.length === 0) {
+      this.bandLista[bandIndex].dissolved = date;
+    }
+  }
+  taBortBand(bandID) {
+    const bandIndex = this.bandLista.findIndex(band => band.bandID === bandID);
+    if (bandIndex === -1) {
+      return false;
+    }
+    this.bandLista.splice(bandIndex, 1);
+    return true;
+  }
+}
+
+class NewBand {
+  constructor(bandNamn, bandAge, musikerID, musikerNamn, instrument) {
+    this.name = bandNamn;
+    this.age = bandAge;
+    this.musikerID = musikerID;
+    this.musikerNamn = musikerNamn;
+    this.instrument = instrument;
+  }
+  dataInfo() {
+    return {
+      bandID: 'id' + new Date().getTime(),
+      name: this.name,
+      age: this.age,
+      currentBand: [{ memberID: this.musikerID, memberName: this.musikerNamn, instrument: this.instrument, joined: this.age }],
+      previousBand: [],
+      instrument: [],
+      dissolved: null
+    };
   }
 }
