@@ -21,9 +21,9 @@ const alternativ = prompt();
 switch (alternativ) {
   case "1":
     let musikerNamn = prompt("Vad heter musikern?: ")
-    let birthYear = prompt("Vilket år är musikern född?: ");
-    let birthMonth = prompt("Vilken månad är musikern född?(01-12): ");
-    let birthDay = prompt("Vilken dag i månaden är musikern född?: ");
+    let birthYear = prompt("Vilket år är musikern född?(YYYY): ");
+    let birthMonth = prompt("Vilken månad är musikern född?(MM): ");
+    let birthDay = prompt("Vilken dag i månaden är musikern född?(DD): ");
 
     let currentDate = new Date();
     let age = currentDate.getFullYear() - birthYear;
