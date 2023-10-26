@@ -34,10 +34,32 @@ export default class Band {
 
   skrivUtBand() {
     for (let i = 0; i < this.bandLista.length; i++) {
-      console.log(`${i + 1}.${this.bandLista[i].bandNamn}`);
+      console.log(`${i}.${this.bandLista[i].bandNamn}`);
     }
   }
   skrivUtEttBand(val2band) {
-    console.log(this.bandLista[val2band - 1])
+    console.log(this.bandLista[val2band])
+  }
+
+  aktivtBand() {
+    let a = []
+    for (let i = 0; i < this.bandLista.length; i++) {
+      if (this.bandLista[i].bandSplit === null) {
+        a.push({ bandID: this.bandLista[i].bandID, bandNamn: this.bandLista[i].bandNamn })
+      }
+    }
+    return a;
+
+  }
+  visaAktivtBand() {
+    let a = this.aktivtBand();
+    if (a.length != 0)
+      for (let i = 0; i < a.length; i++) {
+        console.log(`${i}. ${a[i].bandNamn}`);
+      }
+    return a;
+  }
+  editBand(index, musikerID, musikernsNamn, instrument, datum) {
+    this.bandLista[index].nuvarandeMedlemmar.push({ musikerID: musikerID, musikernsNamn: musikernsNamn, instrument: instrument, gickMed: datum })
   }
 }

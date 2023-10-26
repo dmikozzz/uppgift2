@@ -1,59 +1,24 @@
 [
   {
-    "bandNamn": "mitars",
-    "bandBildades": "1995"
-  },
-  {
-    "bandNamn": "mitar2",
-    "bandBildades": "1994"
-  },
-  {
-    "bandNamn": "Mitars3",
-    "bandBildades": "1993"
-  },
-  {
-    "bandID": "id1698066048008",
-    "bandNamn": "1",
-    "bandBildades": "saxofon"
-  },
-  {
-    "bandID": "id1698071990294",
-    "bandNamn": "Sax man",
-    "bandBildades": "1990",
+    "bandID": "id1698306704794",
+    "bandNamn": "1993",
+    "bandBildades": "id1698306680069",
     "nuvarandeMedlemmar": [
       {
-        "musikerID": "id1698066917644",
-        "musikernsNamn": "id1698066917644",
-        "instrument": "saxofon",
-        "gickMed": "1990"
-      }
-    ],
-    "bandSplit": null
-  },
-  {
-    "bandID": "id1698072044154",
-    "bandNamn": "sax man",
-    "bandBildades": "1990",
-    "nuvarandeMedlemmar": [
+        "instrument": "Mikos band",
+        "gickMed": "id1698306680069"
+      },
       {
-        "musikerID": "id1698066917644",
-        "musikernsNamn": "id1698066917644",
-        "instrument": "saxofon",
-        "gickMed": "1990"
-      }
-    ],
-    "bandSplit": null
-  },
-  {
-    "bandID": "id1698072161113",
-    "bandNamn": "sax man",
-    "bandBildades": "1990",
-    "nuvarandeMedlemmar": [
+        "musikerID": "id1698306680069",
+        "musikernsNamn": "Miko",
+        "instrument": "b",
+        "gickMed": 2023
+      },
       {
-        "musikerID": "id1698066917644",
-        "musikernsNamn": "id1698066917644",
-        "instrument": "saxofon",
-        "gickMed": "1990"
+        "musikerID": "id1698306680069",
+        "musikernsNamn": "Miko",
+        "instrument": "git",
+        "gickMed": 2023
       }
     ],
     "bandSplit": null

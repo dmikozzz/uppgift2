@@ -1,34 +1,32 @@
 [
   {
-    "musikernsNamn": "qwe",
-    "musikernsBD": "1234"
+    "musikerID": "id1698306671089",
+    "musikernsNamn": "Mitar",
+    "musikernsBD": "1990",
+    "nuvarandeBand": [],
+    "tidigareBand": [],
+    "instrument": []
   },
   {
-    "musikernsNamn": "sdasfa",
-    "musikernsBD": "2134"
-  },
-  {
-    "musikernsNamn": "safsgfse",
-    "musikernsBD": "1234"
-  },
-  {
-    "musikernsNamn": "sgrdhdreh",
-    "musikernsBD": "2345"
-  },
-  {
-    "musikerID": "id1698066917644",
+    "musikerID": "id1698306680069",
     "musikernsNamn": "Miko",
     "musikernsBD": "1995",
     "nuvarandeBand": [
       {
-        "bandID": "id1698072161114",
-        "bandNamn": "sax man",
-        "bandBildades": "1990"
+        "bandID": "id1698306704794",
+        "bandNamn": "1993",
+        "bandBildades": 2023
+      },
+      {
+        "bandID": "id1698306704794",
+        "bandNamn": "1993",
+        "bandBildades": 2023
       }
     ],
     "tidigareBand": [],
     "instrument": [
-      "saxofon"
+      "b",
+      "git"
     ]
   }
 ]
